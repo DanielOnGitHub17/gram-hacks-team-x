@@ -1,6 +1,6 @@
 identify();
 
-function translate(text, from, to, output) {
+function translator(text, from, to, output) {
     let data = {};
     data["text"] = text;
     data["from"] = from;
@@ -46,7 +46,7 @@ addEventListener("click", (event)=>{
     switch (event.target.id) {
         case "translate":
             console.log(write.value, from.value, to.value, translated);
-            translate(write.value, from.value, to.value, translated);
+            translator(write.value, from.value, to.value, translated);
             break;
 
         case "SETTINGS":
