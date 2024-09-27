@@ -23,7 +23,7 @@ function generateText() {
     let data = {};
     data["n"] = nWords.value;
     data["to"] = toLang.value;
-    fetch("/translateP", {
+    fetch("/translateP",{
         headers: {
             "Content-Type": "application/json",
         },
