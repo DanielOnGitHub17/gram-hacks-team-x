@@ -10,7 +10,7 @@ function translate(text, from, to, output) {
             "Content-Type": "application/json",
         },
         method: "POST",
-        body: data
+        body: jsonStr(data)
     }).then(resp=>{
         resp.text().then(result=>{
             let translated = result["translated"];

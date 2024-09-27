@@ -27,14 +27,13 @@ def game():
 @app.route('/translate', methods=['POST'])
 def translate():
     if request.method == 'POST':
-        print(request)
-        data = request.data
+        data = json.loads(request.data)
         text = data["from"] + data["text"] + data["to"]
         translated_text = translator(text)
         result = {
             "translated": translated_text
         }
-        return json.
+        return json.dumps(result)
     return "BAD REQUEST"
 
 
