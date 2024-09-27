@@ -49,6 +49,7 @@ function readSettings() {
 }
 
 function readAloud() {
+    let to = window.to || window.toLang;
     let text = translated.textContent,
     lang = {"French": "fr-FR", "Spanish": "es-ES"}[to.value],
     voices = speechSynthesis.getVoices();
