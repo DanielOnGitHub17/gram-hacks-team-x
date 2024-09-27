@@ -25,4 +25,5 @@ def game():
 # with app.test_request_context():
 #     for route in ("home", "practice", "settings", "game"):
 #         print(url_for(route))
-    
+
+# https://wbd.ms/share/v2/aHR0cHM6Ly93aGl0ZWJvYXJkLm1pY3Jvc29mdC5jb20vYXBpL3YxLjAvd2hpdGVib2FyZHMvcmVkZWVtL2I2NDI3NGVjOGVjNzQ1YTZhMWU5ZDFlYzNlMDgxOWE4X0JCQTcxNzYyLTEyRTAtNDJFMS1CMzI0LTVCMTMxRjQyNEUzRF8xOWVjY2JmOS1hNDA0LTRlNDAtOGM0ZS1iMjFkMDQwZjFiOTU=
