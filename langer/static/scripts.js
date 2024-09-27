@@ -77,16 +77,16 @@ addEventListener("click", (event)=>{
             location.href = "/game"
             break;
 
-            case "read":
-                event.preventDefault();
-                readAloud();
-                break;
+        case "read":
+            event.preventDefault();
+            readAloud();
+            break;
 
-            case "generate":
-                event.preventDefault();
-                console.log("hi")
-                generateText();
-                break;
+        case "generate":
+            event.preventDefault();
+            console.log("hi")
+            generateText();
+            break;
     
         default:
             break;
