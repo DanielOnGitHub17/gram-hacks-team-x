@@ -40,24 +40,22 @@ def translate():
 
 openai.api_key = "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"
 
-
 def translator(text, target_language):
-    prompt = f"Translate the following text to {target_language}: '{text}'"
-    
+    messages = [
+        {"role": "system", "content": "You are a helpful assistant that translates text."},
+        {"role": "user", "content": f"Translate the following text to {target_language}: '{text}'"}
+    ]
+
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  
-        messages=[
-            {"role": "system", "content": "You are a translation assistant."},
-            {"role": "user", "content": prompt}
-        ]
+        model="gpt-3.5-turbo",  # Or "gpt-4" if you're using GPT-4
+        messages=messages  # Correct parameter for chat-based models
     )
     
-    # Extract the translation from the response
-    translated_text = response['choices'][0]['message']['content']
+    # Extract the translated text
+    translated_text = response['choices'][0]['message']['content'].strip()
     return translated_text
 
 
-#text, lang from, lang to.
 
 # with app.test_request_context():
 #     for route in ("home", "practice", "settings", "game"):

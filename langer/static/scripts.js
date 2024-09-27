@@ -30,6 +30,12 @@ function readSettings() {
     
 }
 
+function readAloud() {
+    let text = translated.textContent,
+    lang = {"French": "fr-FR", "Spanish": "es-ES"}[to.value],
+    voices = speechSynthesis.getVoices();
+}
+
 addEventListener("click", (event)=>{
     switch (event.target.id) {
         case "translate":
