@@ -33,8 +33,8 @@ function readSettings() {
 addEventListener("click", (event)=>{
     console.log(event.target.id);
     switch (event.target.id) {
-        case "TRANS":
-            translate(TEXTBOX.value, "English", "Spanish", DISPLAY)
+        case "translate":
+            translate(write.value, "English", "Spanish", DISPLAY)
             break;
 
         case "SETTINGS":
