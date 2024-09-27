@@ -1,3 +1,32 @@
-body{
-    background-color: black;
+/* style.css */
+body { 
+    background-color: #b2f0c8; 
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    height: 100vh; 
+    margin: 0; 
+    font-family: 'Arial', sans-serif;
+}
+
+.container { 
+    width: 350px; 
+    padding: 25px; 
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1); 
+    border-radius: 10px;
+}
+
+select, input { 
+    width: 100%; 
+    margin: 10px 0; 
+    padding: 8px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+label {
+    font-size: 16px;
+    color: #333;
+    display: block;
+    margin-bottom: 5px;
 }
