@@ -23,7 +23,7 @@ function generateText() {
     let data = {};
     data["n"] = nWords.textContent;
     data["to"] = toLang.value;
-    fetch("/translate", {
+    fetch("/translateP", {
         headers: {
             "Content-Type": "application/json",
         },
@@ -32,7 +32,8 @@ function generateText() {
     }).then(resp=>{
         resp.json().then(result=>{
             let translated = result["translated"];
-            output.textContent = result["translated"];
+            translated.textContent = result["translated"];
+            generated.textContent = result["text"];
         })
     }) // .catch(console.log);
 }
@@ -83,6 +84,7 @@ addEventListener("click", (event)=>{
 
             case "generate":
                 event.preventDefault();
+                console.log("hi")
                 generateText();
                 break;
     

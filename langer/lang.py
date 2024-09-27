@@ -45,6 +45,7 @@ def translate():
         text = data["text"]
         translated_text = translator(text, data["to"])
         result = {
+            "text": text,
             "translated": translated_text
         }
         return json.dumps(result)
