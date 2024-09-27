@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import url_for
 from flask import render_template
+from flask import request
 
 app = Flask(__name__)
 
@@ -20,6 +21,22 @@ def settings():
 def game():
     return render_template("game.html")
 
+
+@app.route('/translate', methods=['POST'])
+def translate():
+    if request.method == 'POST':
+        data = request.get_json()
+        text = data["text"]
+        translated_text = translator(text)
+        return {
+            "translated": translated_text
+        }
+    return "BAD REQUEST"
+
+
+def translator(text):
+    # Logic for translator
+    return text[::-1]
 
 
 # with app.test_request_context():
