@@ -20,11 +20,26 @@ function translate(text, from, to, output) {
     }) // .catch(console.log);
 }
 
+function readSettings() {
+    let settings = {};
+    settings["from"] = fromLang.value;
+    settings["to"] = toLang.value;
+    settings["dificulty"] = dificulty.value;
+    
+    localStorage.langSettings = jsonStr(settings);
+    
+}
+
 addEventListener("click", (event)=>{
     console.log(event.target.id);
     switch (event.target.id) {
         case "TRANS":
-            translate(TEXTBOX.value, "english", "spanish", DISPLAY)
+            translate(TEXTBOX.value, "English", "Spanish", DISPLAY)
+            break;
+
+        case "SETTINGS":
+            readSettings();
+            location.href = "/game"
             break;
     
         default:
