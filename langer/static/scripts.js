@@ -38,6 +38,7 @@ addEventListener("click", (event)=>{
             break;
 
         case "SETTINGS":
+            event.preventDefault();
             readSettings();
             location.href = "/game"
             break;
