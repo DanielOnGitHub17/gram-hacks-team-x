@@ -30,11 +30,14 @@ def translate_p():
     if request.method == "POST":
         data = json.loads(request.data)
         text = pick(data["n"])
+        print(data["to"])
         translated = translator(text, data["to"])
         result = {
             "text": text,
             "translated": translated
         }
+        return result
+    return "Failed"
 
 
 

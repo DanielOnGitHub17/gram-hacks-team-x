@@ -21,7 +21,7 @@ function translator(text, from, to, output) {
 
 function generateText() {
     let data = {};
-    data["n"] = nWords.textContent;
+    data["n"] = nWords.value;
     data["to"] = toLang.value;
     fetch("/translateP", {
         headers: {
@@ -31,7 +31,7 @@ function generateText() {
         body: jsonStr(data)
     }).then(resp=>{
         resp.json().then(result=>{
-            let translated = result["translated"];
+            console.log(result);
             translated.textContent = result["translated"];
             generated.textContent = result["text"];
         })
