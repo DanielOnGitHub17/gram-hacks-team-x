@@ -1,3 +1,5 @@
+import json
+
 from flask import Flask
 from flask import url_for
 from flask import render_template
@@ -25,12 +27,14 @@ def game():
 @app.route('/translate', methods=['POST'])
 def translate():
     if request.method == 'POST':
-        data = request.get_json()
-        text = data["text"]
+        print(request)
+        data = request.data
+        text = data["from"] + data["text"] + data["to"]
         translated_text = translator(text)
-        return {
+        result = {
             "translated": translated_text
         }
+        return json.
     return "BAD REQUEST"
 
 
