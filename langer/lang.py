@@ -1,5 +1,6 @@
 import json
 
+from pick import pick
 from flask import Flask
 from flask import url_for
 from flask import render_template
@@ -23,6 +24,18 @@ def settings():
 @app.route("/game")
 def game():
     return render_template("game.html")
+
+@app.route('/translateP', methods=['POST'])
+def translate_p():
+    if request.method == "POST":
+        data = json.loads(request.data)
+        text = pick(data["n"])
+        translated = translator(text, data["to"])
+        result = {
+            "text": text,
+            "translated": translated
+        }
+
 
 
 @app.route('/translate', methods=['POST'])

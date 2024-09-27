@@ -19,6 +19,24 @@ function translator(text, from, to, output) {
     }) // .catch(console.log);
 }
 
+function generateText() {
+    let data = {};
+    data["n"] = nWords.textContent;
+    data["to"] = toLang.value;
+    fetch("/translate", {
+        headers: {
+            "Content-Type": "application/json",
+        },
+        method: "POST",
+        body: jsonStr(data)
+    }).then(resp=>{
+        resp.json().then(result=>{
+            let translated = result["translated"];
+            output.textContent = result["translated"];
+        })
+    }) // .catch(console.log);
+}
+
 function readSettings() {
     let settings = {};
     settings["from"] = fromLang.value;
@@ -41,6 +59,10 @@ function readAloud() {
     speechSynthesis.speak(textToSay);
 }
 
+function practice() {
+    
+}
+
 addEventListener("click", (event)=>{
     switch (event.target.id) {
         case "translate":
@@ -54,10 +76,15 @@ addEventListener("click", (event)=>{
             location.href = "/game"
             break;
 
-        case "read":
-            event.preventDefault();
-            readAloud();
-            break;
+            case "read":
+                event.preventDefault();
+                readAloud();
+                break;
+
+            case "generate":
+                event.preventDefault();
+                generateText();
+                break;
     
         default:
             break;
