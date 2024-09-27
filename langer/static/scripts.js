@@ -12,10 +12,9 @@ function translator(text, from, to, output) {
         method: "POST",
         body: jsonStr(data)
     }).then(resp=>{
-        resp.text().then(result=>{
+        resp.json().then(result=>{
             let translated = result["translated"];
-            console.log(result)
-            output.value = result["translated"];
+            output.textContent = result["translated"];
         })
     }) // .catch(console.log);
 }
