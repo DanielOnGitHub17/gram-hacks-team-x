@@ -29,8 +29,8 @@ def game():
 def translate():
     if request.method == 'POST':
         data = json.loads(request.data)
-        text = data["text"]
-        translated_text = translator(text, data["to"])
+        text = data["from"] + data["text"] + data["to"]
+        translated_text = translator(text)
         result = {
             "translated": translated_text
         }
@@ -40,22 +40,24 @@ def translate():
 
 openai.api_key = "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"
 
-def translator(text, target_language):
-    messages = [
-        {"role": "system", "content": "You are a helpful assistant that translates text."},
-        {"role": "user", "content": f"Translate the following text to {target_language}: '{text}'"}
-    ]
 
+def translator(text, target_language):
+    prompt = f"Translate the following text to {target_language}: '{text}'"
+    
     response = openai.ChatCompletion.create(
-        model="gpt-3.5-turbo",  # Or "gpt-4" if you're using GPT-4
-        messages=messages  # Correct parameter for chat-based models
+        model="gpt-3.5-turbo",  
+        messages=[
+            {"role": "system", "content": "You are a translation assistant."},
+            {"role": "user", "content": prompt}
+        ]
     )
     
-    # Extract the translated text
-    translated_text = response['choices'][0]['message']['content'].strip()
+    # Extract the translation from the response
+    translated_text = response['choices'][0]['message']['content']
     return translated_text
 
 
+#text, lang from, lang to.
 
 # with app.test_request_context():
 #     for route in ("home", "practice", "settings", "game"):
