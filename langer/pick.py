@@ -33,7 +33,7 @@ def pick_random_letters_from_words(sentences, num_words_to_pick):
     return formed_word
 
 # Path to your JSON file
-file_path = 'sentences.json'
+file_path = 'C:\Users\\alihu\gram-hacks-team-x\genrtd_sentences.json'
 
 # Load the JSON file
 data = load_json_file(file_path)
