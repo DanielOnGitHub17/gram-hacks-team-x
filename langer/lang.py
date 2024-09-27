@@ -4,6 +4,7 @@ from flask import Flask
 from flask import url_for
 from flask import render_template
 from flask import request
+import openai
 
 app = Flask(__name__)
 
@@ -37,10 +38,26 @@ def translate():
     return "BAD REQUEST"
 
 
-def translator(text):
-    # Logic for translator
-    return text[::-1]
+openai.api_key = "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"
 
+
+def translator(text, target_language):
+    prompt = f"Translate the following text to {target_language}: '{text}'"
+    
+    response = openai.ChatCompletion.create(
+        model="gpt-3.5-turbo",  
+        messages=[
+            {"role": "system", "content": "You are a translation assistant."},
+            {"role": "user", "content": prompt}
+        ]
+    )
+    
+    # Extract the translation from the response
+    translated_text = response['choices'][0]['message']['content']
+    return translated_text
+
+
+#text, lang from, lang to.
 
 # with app.test_request_context():
 #     for route in ("home", "practice", "settings", "game"):
