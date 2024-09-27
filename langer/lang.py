@@ -29,8 +29,8 @@ def game():
 def translate():
     if request.method == 'POST':
         data = json.loads(request.data)
-        text = data["from"] + data["text"] + data["to"]
-        translated_text = translator(text)
+        text = data["text"]
+        translated_text = translator(text, data["to"])
         result = {
             "translated": translated_text
         }

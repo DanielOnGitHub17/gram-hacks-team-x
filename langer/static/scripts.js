@@ -15,7 +15,7 @@ function translate(text, from, to, output) {
         resp.text().then(result=>{
             let translated = result["translated"];
             console.log(result)
-            output.textCountent = result["translated"];
+            output.value = result["translated"];
         })
     }) // .catch(console.log);
 }
@@ -34,7 +34,7 @@ addEventListener("click", (event)=>{
     console.log(event.target.id);
     switch (event.target.id) {
         case "translate":
-            translate(write.value, "English", "Spanish", DISPLAY)
+            translate(write.value, "English", "Spanish", translated);
             break;
 
         case "SETTINGS":
