@@ -31,7 +31,6 @@ function readSettings() {
 }
 
 addEventListener("click", (event)=>{
-    console.log(event.target.id);
     switch (event.target.id) {
         case "translate":
             console.log(write.value, from.value, to.value, translated);
