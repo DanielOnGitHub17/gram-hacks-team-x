@@ -34,6 +34,12 @@ function readAloud() {
     let text = translated.textContent,
     lang = {"French": "fr-FR", "Spanish": "es-ES"}[to.value],
     voices = speechSynthesis.getVoices();
+
+    let voice = voices.filter(voice=>voice.lang==lang)[0];
+    let textToSay = new SpeechSynthesisUtterance(text);
+    textToSay.voice = voice;
+    textToSay.rate = 0.9;
+    speechSynthesis.speak(textToSay);
 }
 
 addEventListener("click", (event)=>{
@@ -48,6 +54,11 @@ addEventListener("click", (event)=>{
             event.preventDefault();
             readSettings();
             location.href = "/game"
+            break;
+
+        case "read":
+            event.preventDefault();
+            readAloud();
             break;
     
         default:
