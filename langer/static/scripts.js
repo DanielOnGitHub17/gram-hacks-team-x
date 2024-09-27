@@ -34,7 +34,7 @@ addEventListener("click", (event)=>{
     console.log(event.target.id);
     switch (event.target.id) {
         case "translate":
-            translate(write.value, "English", "Spanish", translated);
+            translate(write.value, from.value, to.value, translated);
             break;
 
         case "SETTINGS":
