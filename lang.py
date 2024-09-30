@@ -38,9 +38,6 @@ def translate():
     return "BAD REQUEST"
 
 
-openai.api_key = "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"
-
-
 def translator(text, target_language):
     prompt = f"Translate the following text to {target_language}: '{text}'"
     
